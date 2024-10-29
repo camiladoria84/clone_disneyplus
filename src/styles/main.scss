@@ -1,5 +1,7 @@
 @use 'variaveis';
 @use 'hero';
+@use 'shows';
+@use 'plans';
 
 @font-face {
     font-family: Avenir;
@@ -18,10 +20,67 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    font-family: Avenir, sans-serif;
 }
 
 
 
 body {
-    background-color: $bgcolor;
+    background-color: variaveis.$corDeFundo;
 }
+
+@mixin text($fontSize: 16px) {
+    font-size: $fontSize;
+    line-height: $fontSize + 10px;
+    color: variaveis.$corTextoPrincipal;
+}
+
+@mixin title($fontSize: 40px) {
+    @include text($fontSize);
+    color: variaveis.$corTextoPrincipal;
+}
+
+.text--big {
+    @include text(18px);
+}
+
+.text {
+    @include text;
+}
+
+.text--small {
+    @include text(12px);
+}
+
+.link--text {
+    @include text(18px);
+    color: variaveis.$corTextoSegundario;
+    text-decoration: underline;
+}
+
+.title--big {
+    @include title(44px)
+}
+
+.title {
+    @include title
+}
+
+.title--small {
+    @include title(28px);
+}
+
+.button {
+    display: block;
+    height: 60px;
+    width: 100%;
+    font-size: 18px;
+    color: variaveis.$corTextoSegundario;
+    background-color: #6421ff;
+    text-transform: uppercase;
+    border-radius: 4px;
+    margin-top: 2vw;
+    margin-bottom: 8px;
+}
+
+
